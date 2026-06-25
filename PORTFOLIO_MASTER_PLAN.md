@@ -1,475 +1,182 @@
-# Muhammad Nurifai Portfolio Website
+# Muhammad Nurifai Portfolio
 
-## Vision
+## Core Idea
 
-This portfolio is not a traditional developer portfolio.
+This is not a portfolio website.
 
-Most portfolios present a single profession:
+This is a gateway into three different professional identities.
 
-* Frontend Developer
-* UI/UX Designer
-* Graphic Designer
+Most portfolios try to combine everything into one experience:
 
-This portfolio presents all three disciplines while maintaining a clear separation between them.
+* About Me
+* Projects
+* Experience
+* Contact
 
-The goal is to communicate:
+The result is often confusing for multidisciplinary people.
 
-> I build products through code, design, and visual storytelling.
+Visitors struggle to understand:
+
+> Is he a Frontend Developer?
+>
+> A UI/UX Designer?
+>
+> Or a Graphic Designer?
+
+Instead of combining everything into one experience, this portfolio separates each discipline into its own universe.
+
+The homepage acts as an entrance.
+
+The visitor chooses how they want to know me.
 
 ---
 
-# Core Concept
+# Portfolio Philosophy
 
-The portfolio is organized around three professional identities.
+I don't want visitors to browse a resume.
 
-Visitors can choose which side of my work they want to explore.
+I want visitors to choose a perspective.
 
 ```text
-Frontend Development
-UI/UX Design
-Graphic Design
+Choose how you want to know me.
+
+[ Frontend Developer ]
+
+[ UI/UX Designer ]
+
+[ Graphic Designer ]
 ```
 
-Each path has its own dedicated experience, visual style, and content structure.
+Each choice leads to a completely different experience.
+
+Different design systems.
+
+Different layouts.
+
+Different storytelling.
+
+Different audiences.
 
 ---
 
-# Site Structure
+# Landing Page
+
+## Purpose
+
+The homepage exists for only one reason:
+
+To let visitors choose a path.
+
+Nothing else.
+
+---
+
+## Rules
+
+No navigation.
+
+No scrolling.
+
+No project cards.
+
+No experience timeline.
+
+No contact section.
+
+No footer.
+
+The page occupies exactly one screen.
 
 ```text
-/
-├── Home
-├── Frontend
-│   ├── Project List
-│   └── Case Study
-├── UIUX
-│   ├── Case Study List
-│   └── Case Study Detail
-├── Graphic
-│   ├── Gallery
-│   └── Project Detail
-├── Experience
-├── Awards
-└── Contact
+100vh
 ```
+
+The homepage should feel like entering a game and selecting a character.
 
 ---
 
-# Homepage
-
-## Hero
+## Structure
 
 ```text
 Muhammad Nurifai
 
-Frontend Developer
-UI/UX Designer
-Graphic Designer
+Code.
+Design.
+Visual Storytelling.
 
-Building products through code and design.
-```
+Choose Your Path
 
-CTA:
+[ Frontend ]
 
-```text
-Explore My Work
-```
+[ UI/UX ]
 
----
-
-## Choose Your Path
-
-Three large cards.
-
-### Frontend Development
-
-Description:
-
-```text
-Building scalable web applications and digital products.
-```
-
-Link:
-
-```text
-/frontend
+[ Graphic ]
 ```
 
 ---
 
-### UI/UX Design
+## Emotional Goal
 
-Description:
+The visitor should immediately understand:
 
-```text
-Designing intuitive and meaningful user experiences.
-```
-
-Link:
-
-```text
-/uiux
-```
+> This is not a typical portfolio.
 
 ---
 
-### Graphic Design
+# Universe 01 — Frontend Developer
 
-Description:
+## Audience
 
-```text
-Creating visual identities and communication materials.
-```
-
-Link:
-
-```text
-/graphic
-```
-
----
-
-## Selected Work
-
-Featured projects from all disciplines.
-
-Examples:
-
-* Hospital Information System
-* Rwikistat
-* E-Rekomtek
-* PT Kensen Logo
-* ICMSA Website
-
----
-
-## Experience Preview
-
-Timeline preview.
-
-```text
-2025
-System & Data Administrator
-
-2024–2025
-Frontend Developer
-
-2022
-Intern Student
-```
-
----
-
-# Frontend Section
-
-## Purpose
-
-Show engineering skills.
-
-Target audience:
-
-* Recruiters
 * Engineering Managers
+* Recruiters
 * Technical Leads
+* Developers
 
 ---
 
-## Layout
+## Identity
+
+This universe represents engineering.
+
+Building systems.
+
+Solving technical problems.
+
+Creating scalable products.
+
+---
+
+## Feeling
 
 ```text
-Hero
-Projects Grid
-Case Studies
+Professional
+Technical
+Structured
+Focused
 ```
 
 ---
 
-## Project Card
-
-Contains:
-
-* Thumbnail
-* Project Name
-* Role
-* Stack
-* Year
-
-Example:
-
-```text
-Hospital Information System
-
-Frontend Developer
-
-Next.js
-React
-Tailwind
-REST API
-```
-
----
-
-## Case Study Structure
-
-### Hero
-
-Large screenshot.
-
-### Overview
-
-Project summary.
-
-### Problem
-
-What problem was being solved.
-
-### My Role
-
-Responsibilities.
-
-### Tech Stack
-
-Frameworks and tools.
-
-### Challenges
-
-Technical and business challenges.
-
-### Solutions
-
-How challenges were solved.
-
-### Architecture
-
-System overview.
-
-### Screenshots
-
-Application images.
-
-### Lessons Learned
-
-Project reflections.
-
----
-
-# UI/UX Section
-
-## Purpose
-
-Show design thinking.
-
-Target audience:
-
-* Product Teams
-* Designers
-* Startup Founders
-
----
-
-## Layout
-
-```text
-Case Study Grid
-```
-
----
-
-## Case Study Structure
-
-### Overview
-
-Project introduction.
-
-### Problem Statement
-
-User or business problem.
-
-### Research
-
-Research findings.
-
-### User Flow
-
-User journey.
-
-### Wireframes
-
-Low fidelity designs.
-
-### Design System
-
-Components and styles.
-
-### High Fidelity
-
-Final designs.
-
-### Prototype
-
-Interactive demonstration.
-
-### Outcome
-
-Results and impact.
-
----
-
-# Graphic Design Section
-
-## Purpose
-
-Show visual design capabilities.
-
-Target audience:
-
-* Clients
-* Marketing Teams
-* Agencies
-
----
-
-## Layout
-
-Pinterest / Behance inspired.
-
-Masonry grid.
-
----
-
-## Categories
-
-```text
-All
-Logo
-Poster
-Branding
-Social Media
-Flyer
-Banner
-```
-
----
-
-## Example Works
-
-### Logo Design
-
-* PT Kensen Grik Teknokons
-* BEM FMIPA
-* eReses
-
-### Event Design
-
-* IMTA 2022
-
-### Social Media
-
-* BEM FMIPA Content
-
----
-
-# Experience Page
-
-Timeline based.
-
----
-
-## Timeline Structure
-
-### 2025
-
-System & Data Administrator
-
-Universitas Syiah Kuala
-
-Responsibilities:
-
-* Survey data management
-* Kobotoolbox setup
-* Data analysis
-
----
-
-### 2024–2025
-
-Frontend Developer
-
-Rumah Sakit Ibnu Sina
-
-Responsibilities:
-
-* Hospital Information System
-* BPJS Integration
-* Satu Sehat Integration
-* Next.js Development
-
----
-
-### 2022
-
-Intern Student
-
-Dinas Pengairan Aceh
-
-Responsibilities:
-
-* E-Rekomtek Development
-* UI/UX Design
-
----
-
-# Awards Page
-
-Display achievements.
-
-Examples:
-
-* Djarum Beasiswa Plus Awardee
-* PIPM Awardee
-* 2nd Winner KSM
-* 1st Winner Short Video Competition
-* 3rd Winner Poster Design
-* Astronomy Olympiad Winner
-
----
-
-# Contact Page
-
-Minimal.
-
-```text
-Email
-LinkedIn
-Github
-Instagram
-```
-
-CTA:
-
-```text
-Let's Build Something Together
-```
-
----
-
-# Design Direction
-
-## Theme
-
-Modern and minimal.
-
-Inspired by:
+## Visual Inspiration
 
 * Vercel
 * Linear
+* Stripe
 * Raycast
 
-Avoid:
+---
 
-* Overly colorful layouts
-* Dribbble-style portfolios
-* Heavy animations
+## Design Language
+
+Dark theme.
+
+Grid layouts.
+
+Clean spacing.
+
+Minimal decoration.
+
+Content first.
 
 ---
 
@@ -481,65 +188,329 @@ Surface: #111111
 Border: #1F1F1F
 
 Text: #FAFAFA
-Muted: #A1A1AA
 
 Accent: #7C3AED
 ```
 
 ---
 
-# Tech Stack
-
-## Framework
+## Typography
 
 ```text
-Next.js
-TypeScript
-```
-
-## Styling
-
-```text
-Tailwind CSS v4
-shadcn/ui
-```
-
-## Animation
-
-```text
-Motion
-Lenis
-```
-
-## Deployment
-
-```text
-Vercel
+Geist
+Inter
 ```
 
 ---
 
-# Data Structure
+## Content
 
-Store content separately from components.
+### Hero
 
-```text
-data/
-├── frontend-projects.ts
-├── uiux-projects.ts
-├── graphic-projects.ts
-├── experiences.ts
-└── awards.ts
-```
+Personal introduction as a Frontend Developer.
 
-Components should render from data objects.
+### Projects
 
-Avoid hardcoded content.
+* Hospital Information System
+* Rwikistat
+* E-Rekomtek
+* ICMSA Website
+
+### Technical Case Studies
+
+For every project:
+
+* Overview
+* Architecture
+* Tech Stack
+* Challenges
+* Solutions
+* Results
+
+### Experience
+
+Relevant engineering experience.
 
 ---
 
-# Personal Brand Statement
+## Goal
 
-Muhammad Nurifai is a multidisciplinary creator who combines software engineering, user experience design, and visual communication to build impactful digital products.
+Convince visitors:
 
-The portfolio should feel like a product experience rather than a resume.
+> Muhammad can build real-world software products.
+
+---
+
+# Universe 02 — UI/UX Designer
+
+## Audience
+
+* Product Designers
+* Product Managers
+* Startup Founders
+* Design Teams
+
+---
+
+## Identity
+
+This universe represents problem solving through design.
+
+Research.
+
+Empathy.
+
+Systems thinking.
+
+User-centered design.
+
+---
+
+## Feeling
+
+```text
+Calm
+Intentional
+Editorial
+Thoughtful
+```
+
+---
+
+## Visual Inspiration
+
+* Apple
+* Notion
+* Medium
+* Figma Design Team
+
+---
+
+## Design Language
+
+Bright theme.
+
+Lots of whitespace.
+
+Large typography.
+
+Editorial layouts.
+
+Story-driven.
+
+---
+
+## Color Palette
+
+```css
+Background: #FAFAFA
+Surface: #FFFFFF
+
+Text: #0A0A0A
+
+Accent: #2563EB
+```
+
+---
+
+## Typography
+
+```text
+Inter
+Instrument Serif
+```
+
+---
+
+## Content
+
+Case studies only.
+
+Each project tells a story.
+
+### Problem
+
+What was the challenge?
+
+### Research
+
+What was discovered?
+
+### User Flow
+
+How users interact.
+
+### Wireframes
+
+Early thinking.
+
+### Design System
+
+Components and patterns.
+
+### Final Design
+
+Final solution.
+
+### Outcome
+
+Results and lessons learned.
+
+---
+
+## Goal
+
+Convince visitors:
+
+> Muhammad understands people, not just interfaces.
+
+---
+
+# Universe 03 — Graphic Designer
+
+## Audience
+
+* Clients
+* Agencies
+* Marketing Teams
+* Brands
+
+---
+
+## Identity
+
+This universe represents visual communication.
+
+Branding.
+
+Storytelling.
+
+Creative exploration.
+
+---
+
+## Feeling
+
+```text
+Bold
+Expressive
+Creative
+Unexpected
+```
+
+---
+
+## Visual Inspiration
+
+* Behance
+* Studio Dumbar
+* Awwwards Portfolios
+* Design Studios
+
+---
+
+## Design Language
+
+This section is allowed to break rules.
+
+Large visuals.
+
+Experimental layouts.
+
+Dynamic compositions.
+
+Strong imagery.
+
+---
+
+## Typography
+
+```text
+Space Grotesk
+Clash Display
+```
+
+---
+
+## Content
+
+### Branding
+
+Logos.
+
+Identity systems.
+
+### Posters
+
+Campaigns.
+
+Promotions.
+
+### Social Media
+
+Digital campaigns.
+
+### Event Design
+
+Banners.
+
+Flyers.
+
+Merchandise.
+
+---
+
+## Goal
+
+Convince visitors:
+
+> Muhammad can create memorable visual experiences.
+
+---
+
+# Technical Architecture
+
+```text
+app/
+│
+├── page.tsx
+│
+├── frontend/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── ...
+│
+├── uiux/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── ...
+│
+├── graphic/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── ...
+```
+
+Each universe owns:
+
+* Layout
+* Typography
+* Theme
+* Navigation
+* Components
+
+Shared components should be minimal.
+
+---
+
+# Long-Term Vision
+
+The portfolio should feel less like a website and more like three separate worlds connected by a single entrance.
+
+The homepage asks one question:
+
+```text
+How would you like to know Muhammad Nurifai?
+```
+
+The answer determines the experience that follows.

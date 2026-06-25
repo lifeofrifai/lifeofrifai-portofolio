@@ -1,69 +1,58 @@
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { SectionHeader } from "@/components/shared/section-header";
-import { Tag } from "@/components/shared/tag";
-import { uiuxProjects } from "@/data/uiux-projects";
 import Link from "next/link";
+import { uiuxProjects } from "@/data/uiux-projects";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "UI/UX Design",
-  description:
-    "Design case studies showcasing user research, wireframes, and high-fidelity prototypes.",
+  description: "Design case studies focused on research, empathy, and user-centered thinking.",
 };
 
 export default function UIUXPage() {
   return (
-    <>
-      <Header />
-      <main className="pt-28 pb-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeader
-            eyebrow="UI/UX Design"
-            title="Designing meaningful experiences"
-            description="User research, interaction design, and high-fidelity prototypes for products people love to use."
-          />
+    <div className="ux-container-wide">
+      <p className="ux-eyebrow anim-fade-in">Universe 02</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {uiuxProjects.map((project, i) => (
-              <Link
-                key={project.slug}
-                href={`/uiux/${project.slug}`}
-                className="group p-6 rounded-xl border border-[#1F1F1F] bg-[#111111] hover:border-[#2A2A2A] transition-all duration-300 animate-slide-up"
-                style={{ animationDelay: `${i * 0.08}s` }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    {project.featured && <Tag variant="accent">Featured</Tag>}
-                    <Tag>{project.year}</Tag>
-                  </div>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className="text-[#A1A1AA] group-hover:text-[#FAFAFA] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    <path d="M3 13L13 3M13 3H7M13 3v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
+      <h1 className="ux-headline anim-fade-up delay-100">
+        Design that<br />
+        <em>understands people.</em>
+      </h1>
 
-                <h3 className="text-[#FAFAFA] font-semibold text-lg mb-3">{project.title}</h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed mb-5">
-                  {project.description}
-                </p>
+      <p className="ux-lead anim-fade-up delay-200">
+        Case studies in user research, interaction design, and high-fidelity
+        prototyping. Every project starts with a question, not a canvas.
+      </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tools.map((tool) => (
-                    <Tag key={tool}>{tool}</Tag>
-                  ))}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+      <div className="ux-grid">
+        {uiuxProjects.map((project, i) => (
+          <Link
+            key={project.slug}
+            href={`/uiux/${project.slug}`}
+            className="ux-card anim-fade-up"
+            style={{ animationDelay: `${0.1 + i * 0.08}s` }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+              <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
+                {project.featured && (
+                  <span className="ux-tag ux-tag-accent">Featured</span>
+                )}
+                <span className="ux-tag">{project.year}</span>
+              </div>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: "#CCC", flexShrink: 0 }}>
+                <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            <h3 className="ux-card-title">{project.title}</h3>
+            <p className="ux-card-desc">{project.description}</p>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+              {project.tools.map((tool) => (
+                <span key={tool} className="ux-tag">{tool}</span>
+              ))}
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }

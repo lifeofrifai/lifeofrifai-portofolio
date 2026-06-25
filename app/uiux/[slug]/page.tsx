@@ -1,8 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { Tag } from "@/components/shared/tag";
 import { uiuxProjects, getUIUXProjectBySlug } from "@/data/uiux-projects";
 import type { Metadata } from "next";
 
@@ -18,10 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getUIUXProjectBySlug(slug);
   if (!project) return {};
-  return {
-    title: project.title,
-    description: project.description,
-  };
+  return { title: project.title, description: project.description };
 }
 
 export default async function UIUXCaseStudy({ params }: Props) {
@@ -32,94 +26,100 @@ export default async function UIUXCaseStudy({ params }: Props) {
   const cs = project.caseStudy;
 
   return (
-    <>
-      <Header />
-      <main className="pt-28 pb-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <Link
-            href="/uiux"
-            className="inline-flex items-center gap-2 text-sm text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors mb-10"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M13 8H3M3 8l5 5M3 8l5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            UI/UX Projects
-          </Link>
+    <div className="ux-container">
+      <Link href="/uiux" className="ux-back-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M11 7H3M3 7l4 4M3 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Case Studies
+      </Link>
 
-          <div className="mb-10">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <Tag variant="accent">UI/UX Design</Tag>
-              <Tag>{project.year}</Tag>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-semibold text-[#FAFAFA] tracking-tight mb-4">
-              {project.title}
-            </h1>
-            <p className="text-[#A1A1AA] text-lg leading-relaxed">{project.description}</p>
-          </div>
+      <div className="anim-fade-up">
+        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+          <span className="ux-tag ux-tag-accent">UI/UX Design</span>
+          <span className="ux-tag">{project.year}</span>
+        </div>
 
-          <div className="flex flex-wrap gap-2 mb-12 pb-12 border-b border-[#1F1F1F]">
-            {project.tools.map((tool) => (
-              <Tag key={tool}>{tool}</Tag>
-            ))}
-          </div>
+        <h1
+          style={{
+            fontFamily: "var(--font-instrument), Georgia, serif",
+            fontSize: "clamp(2rem, 5vw, 3rem)",
+            fontWeight: 400,
+            color: "#0A0A0A",
+            lineHeight: 1.15,
+            letterSpacing: "-0.01em",
+            marginBottom: "1rem",
+          }}
+        >
+          {project.title}
+        </h1>
 
-          {cs && (
-            <div className="space-y-12">
-              <CaseStudySection title="Overview">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.overview}</p>
-              </CaseStudySection>
+        <p style={{ fontSize: "1.05rem", color: "#555", lineHeight: 1.65, marginBottom: "2rem" }}>
+          {project.description}
+        </p>
+      </div>
 
-              <CaseStudySection title="Problem Statement">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.problemStatement}</p>
-              </CaseStudySection>
+      <div className="ux-tools">
+        {project.tools.map((tool) => (
+          <span key={tool} className="ux-tag">{tool}</span>
+        ))}
+      </div>
 
-              <CaseStudySection title="Research">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.research}</p>
-              </CaseStudySection>
+      {cs && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+          <UXSection label="Overview" title={undefined}>
+            <p className="ux-body">{cs.overview}</p>
+          </UXSection>
 
-              {cs.userFlow && (
-                <CaseStudySection title="User Flow">
-                  <p className="text-[#A1A1AA] leading-relaxed">{cs.userFlow}</p>
-                </CaseStudySection>
-              )}
+          <UXSection label="Problem Statement" title={undefined}>
+            <p className="ux-body">{cs.problemStatement}</p>
+          </UXSection>
 
-              <CaseStudySection title="Outcome">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.outcome}</p>
-              </CaseStudySection>
+          <UXSection label="Research" title={undefined}>
+            <p className="ux-body">{cs.research}</p>
+          </UXSection>
 
-              {cs.figmaUrl && (
-                <CaseStudySection title="Prototype">
-                  <a
-                    href={cs.figmaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-[#7C3AED] hover:text-[#6D28D9] transition-colors"
-                  >
-                    View Figma Prototype →
-                  </a>
-                </CaseStudySection>
-              )}
-            </div>
+          {cs.userFlow && (
+            <UXSection label="User Flow" title={undefined}>
+              <p className="ux-body">{cs.userFlow}</p>
+            </UXSection>
+          )}
+
+          <UXSection label="Outcome" title={undefined}>
+            <p className="ux-body">{cs.outcome}</p>
+          </UXSection>
+
+          {cs.figmaUrl && (
+            <UXSection label="Prototype" title={undefined}>
+              <a
+                href={cs.figmaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: "0.9rem", color: "#2563EB", textDecoration: "none" }}
+              >
+                View in Figma →
+              </a>
+            </UXSection>
           )}
         </div>
-      </main>
-      <Footer />
-    </>
+      )}
+    </div>
   );
 }
 
-function CaseStudySection({
+function UXSection({
+  label,
   title,
   children,
 }: {
-  title: string;
+  label: string;
+  title: string | undefined;
   children: React.ReactNode;
 }) {
   return (
     <section>
-      <h2 className="text-sm font-mono text-[#A1A1AA] uppercase tracking-widest mb-4">
-        {title}
-      </h2>
+      <p className="ux-section-label">{label}</p>
+      {title && <h2 className="ux-section-title">{title}</h2>}
       {children}
     </section>
   );

@@ -1,8 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { Tag } from "@/components/shared/tag";
 import { frontendProjects, getProjectBySlug } from "@/data/frontend-projects";
 import type { Metadata } from "next";
 
@@ -18,10 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
-  return {
-    title: project.title,
-    description: project.description,
-  };
+  return { title: project.title, description: project.description };
 }
 
 export default async function FrontendCaseStudy({ params }: Props) {
@@ -32,98 +26,83 @@ export default async function FrontendCaseStudy({ params }: Props) {
   const cs = project.caseStudy;
 
   return (
-    <>
-      <Header />
-      <main className="pt-28 pb-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <Link
-            href="/frontend"
-            className="inline-flex items-center gap-2 text-sm text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors mb-10"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M13 8H3M3 8l5 5M3 8l5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Frontend Projects
-          </Link>
+    <div className="fe-container" style={{ maxWidth: 680 }}>
+      <Link href="/frontend" className="fe-back-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M11 7H3M3 7l4 4M3 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Projects
+      </Link>
 
-          <div className="mb-10">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <Tag variant="accent">Frontend</Tag>
-              <Tag>{project.year}</Tag>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-semibold text-[#FAFAFA] tracking-tight mb-3">
-              {project.title}
-            </h1>
-            <p className="text-[#7C3AED] mb-4">{project.role}</p>
-            <p className="text-[#A1A1AA] text-lg leading-relaxed">{project.description}</p>
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-12 pb-12 border-b border-[#1F1F1F]">
-            {project.stack.map((tech) => (
-              <Tag key={tech}>{tech}</Tag>
-            ))}
-          </div>
-
-          {cs && (
-            <div className="space-y-12">
-              <CaseStudySection title="Overview">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.overview}</p>
-              </CaseStudySection>
-
-              <CaseStudySection title="The Problem">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.problem}</p>
-              </CaseStudySection>
-
-              <CaseStudySection title="My Role">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.myRole}</p>
-              </CaseStudySection>
-
-              <CaseStudySection title="Challenges">
-                <ul className="space-y-3">
-                  {cs.challenges.map((c) => (
-                    <li key={c} className="flex gap-3 text-[#A1A1AA]">
-                      <span className="text-[#7C3AED] mt-1 flex-shrink-0">—</span>
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </CaseStudySection>
-
-              <CaseStudySection title="Solutions">
-                <ul className="space-y-3">
-                  {cs.solutions.map((s) => (
-                    <li key={s} className="flex gap-3 text-[#A1A1AA]">
-                      <span className="text-[#7C3AED] mt-1 flex-shrink-0">→</span>
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </CaseStudySection>
-
-              <CaseStudySection title="Lessons Learned">
-                <p className="text-[#A1A1AA] leading-relaxed">{cs.lessonsLearned}</p>
-              </CaseStudySection>
-            </div>
-          )}
+      <div className="anim-fade-up">
+        <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+          <span className="fe-tag fe-tag-accent">Frontend</span>
+          <span className="fe-tag">{project.year}</span>
         </div>
-      </main>
-      <Footer />
-    </>
+
+        <h1 style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)", fontWeight: 600, letterSpacing: "-0.025em", color: "#FAFAFA", lineHeight: 1.1, marginBottom: "0.5rem" }}>
+          {project.title}
+        </h1>
+        <p style={{ fontSize: "0.8rem", color: "#7C3AED", marginBottom: "1rem" }}>{project.role}</p>
+        <p style={{ fontSize: "0.9rem", color: "#555", lineHeight: 1.65, marginBottom: "2rem" }}>{project.description}</p>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+          {project.stack.map((tech) => (
+            <span key={tech} className="fe-tag">{tech}</span>
+          ))}
+        </div>
+      </div>
+
+      <hr className="fe-divider" />
+
+      {cs && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+          <Section title="Overview">
+            <div className="fe-prose"><p>{cs.overview}</p></div>
+          </Section>
+
+          <Section title="The Problem">
+            <div className="fe-prose"><p>{cs.problem}</p></div>
+          </Section>
+
+          <Section title="My Role">
+            <div className="fe-prose"><p>{cs.myRole}</p></div>
+          </Section>
+
+          <Section title="Challenges">
+            <div className="fe-prose">
+              <ul>
+                {cs.challenges.map((c) => <li key={c}>{c}</li>)}
+              </ul>
+            </div>
+          </Section>
+
+          <Section title="Solutions">
+            <div className="fe-prose">
+              <ul style={{ listStyle: "none" }}>
+                {cs.solutions.map((s) => (
+                  <li key={s} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                    <span style={{ color: "#7C3AED", flexShrink: 0 }}>→</span>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Section>
+
+          <Section title="Lessons Learned">
+            <div className="fe-prose"><p>{cs.lessonsLearned}</p></div>
+          </Section>
+        </div>
+      )}
+    </div>
   );
 }
 
-function CaseStudySection({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-sm font-mono text-[#A1A1AA] uppercase tracking-widest mb-4">
-        {title}
-      </h2>
+      <h2 className="fe-h2">{title}</h2>
       {children}
     </section>
   );
